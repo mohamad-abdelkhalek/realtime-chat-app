@@ -23,3 +23,55 @@ body {
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 1),
                 0 32px 64px -48px rgba(0, 0, 0, 0.5);
 }
+
+/* Signup Form CSS Code*/
+
+.form {
+    padding: 25px 30px; 
+}
+
+.form header {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.form form {
+    margin: 20px 0;
+}
+
+.form form .error-txt {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+}
+
+.name-details {
+    display: flex;
+    gap: 10px;
+}
+
+
+.form form .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form form .field input{
+    outline: none;
+}
+
+.form form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
