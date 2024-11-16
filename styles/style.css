@@ -56,6 +56,9 @@ body {
     gap: 10px;
 }
 
+.form label {
+    margin-bottom: 2px;
+}
 
 .form form .field {
     display: flex;
@@ -74,4 +77,30 @@ body {
     padding: 0 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.form form .image input {
+    font-size: 17px;
+}
+
+.submit-button {
+    margin-top: 13px;
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.link {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+.link a:hover {
+    text-decoration: underline;
 }
