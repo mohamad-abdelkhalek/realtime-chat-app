@@ -175,6 +175,7 @@ body {
     font-size: 18px;
 }
 
+/* Search input field */
 .users .search input {
     position: absolute;
     height: 42px;
@@ -184,19 +185,42 @@ body {
     font-size: 16px;
     border-radius: 5px 0 0 5px;
     outline: none;
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Prevent interaction when hidden */
+    transition: all 0.2s ease;
 }
 
+/* Active input field: visible and interactive */
+.users .search input.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Search button */
 .users .search button {
     width: 47px;
     height: 42px;
     border: none;
     outline: none;
-    color: #fff;
-    background: #333;
+    color: #333;
+    background: #fff;
     cursor: pointer;
     font-size: 17px;
     border-radius: 0 5px 5px 0;
+    transition: all 0.2s ease;
 }
+
+/* Active button: changes color */
+.users .search button.active {
+    color: #fff;
+    background: #333;
+}
+
+/* Active button with Font Awesome: changes icon */
+.users .search button.active i::before {
+    content: "\f00d"; /* Font Awesome's "times" icon */
+}
+
 
 .users-list {
     max-height: 350px;
