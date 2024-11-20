@@ -30,5 +30,8 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
                 $img_ext = strtolower(end($img_explode)); // Get file extension
 
                 $extensions = ['png', 'jpeg', 'jpg'];
-                
+                if (in_array($img_ext, $extensions) === true) {
+                    $time = time(); // Current timestamp
+                    $new_img_name = $time . $img_name;
+
 ?>
