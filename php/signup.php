@@ -45,4 +45,34 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
                         $random_id = rand(time(), 10000000);
                         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
+                        // Insert user data into database
+                        $sql2 = mysqli_query($connection, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
+                                        VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$hashed_password}', '{$new_img_name}', '{$status}')");
+
+                        if ($sql2) {
+                            $sql3 = mysqli_query($connection, "SELECT * FROM users WHERE email = '{$email}'");
+                            if (mysqli_num_rows($sql3) > 0) {
+                                $row = mysqli_fetch_assoc($sql3);
+                                $_SESSION['unique_id'] = $row['unique_id'];
+                                echo "success";
+                            }
+                        } else {
+                            echo "Error: " . mysqli_error($connection);
+                        }
+                    } else {
+                        echo "Failed to upload image!";
+                    }
+                } else {
+                    echo "Invalid image format (png, jpeg, jpg allowed).";
+                }
+            } else {
+                echo "Please select an image file.";
+            }
+        }
+    } else {
+        echo "$email - This email is not valid!";
+    }
+} else {
+    echo "All input fields are required!";
+}
 ?>
