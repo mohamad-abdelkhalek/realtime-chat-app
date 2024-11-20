@@ -39,4 +39,10 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
                         mkdir("images", 0777, true);
                     }
 
+                    // Move uploaded file
+                    if (move_uploaded_file($tmp_name, "images/" . $new_img_name)) {
+                        $status = "Active now";
+                        $random_id = rand(time(), 10000000);
+                        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
 ?>
