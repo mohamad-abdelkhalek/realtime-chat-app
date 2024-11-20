@@ -9,5 +9,19 @@ forms.forEach((form) => {
         // Ajax start
         let xhr = new XMLHttpRequest(); // Create XML Object
         xhr.open("POST", "./php/signup.php", true);
+
+        xhr.onload = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    let data = xhr.responseText; // Correctly get the response text
+                    if (data === "success") {
+                        location.href = "users.html";
+                    } else {
+                        errorText.textContent = data;
+                        errorText.style.display = "block";
+                    }
+                }
+            }
+        };
     };
 });
