@@ -23,5 +23,9 @@ forms.forEach((form) => {
                 }
             }
         };
+
+        // Send form data
+        const formData = new FormData(form);
+        xhr.send(formData);
     };
 });
