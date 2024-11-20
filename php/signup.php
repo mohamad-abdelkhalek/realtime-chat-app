@@ -34,4 +34,9 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
                     $time = time(); // Current timestamp
                     $new_img_name = $time . $img_name;
 
+                    // Ensure images directory exists
+                    if (!is_dir("images")) {
+                        mkdir("images", 0777, true);
+                    }
+
 ?>
