@@ -22,6 +22,13 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
         if (mysqli_num_rows($sql) > 0) {
             echo "$email - This email already exists!";
         } else {
-            
-        }
+            // Check if an image file is uploaded
+            if (isset($_FILES['image'])) {
+                $img_name = $_FILES['image']['name']; // Get uploaded image name
+                $tmp_name = $_FILES['image']['tmp_name']; // Get temporary file name
+                $img_explode = explode('.', $img_name);
+                $img_ext = strtolower(end($img_explode)); // Get file extension
+
+                $extensions = ['png', 'jpeg', 'jpg'];
+                
 ?>
