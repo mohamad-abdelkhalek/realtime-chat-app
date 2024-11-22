@@ -6,11 +6,11 @@ forms.forEach((form) => {
     form.onsubmit = (e) => {
         e.preventDefault(); // Prevent the form from submitting
 
-         // AJAX start
-         const xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
-         xhr.open("POST", "./php/login.php", true);
+        // AJAX start
+        const xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+        xhr.open("POST", "./php/login.php", true);
 
-         xhr.onload = () => {
+        xhr.onload = () => {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     try {
@@ -38,4 +38,8 @@ forms.forEach((form) => {
             errorText.style.display = "block";
         };
 
-    );}}
+        // Send form data
+        const formData = new FormData(form);
+        xhr.send(formData);
+    };
+});
