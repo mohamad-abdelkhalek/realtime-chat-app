@@ -44,8 +44,12 @@ if ($email && $password) {
     }
 
     $stmt->close();
-
-    }
+} else {
+    $response = [
+        "status" => "error",
+        "message" => "All input fields are required"
+    ];
 }
 
+echo json_encode($response);
 ?>
