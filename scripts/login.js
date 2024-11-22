@@ -33,4 +33,9 @@ forms.forEach((form) => {
             }
         };
 
+        xhr.onerror = () => {
+            errorText.textContent = "Failed to connect to the server. Please try again.";
+            errorText.style.display = "block";
+        };
+
     );}}
