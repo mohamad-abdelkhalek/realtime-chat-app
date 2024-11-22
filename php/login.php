@@ -22,6 +22,29 @@ if ($email && $password) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
+        // Verify the password
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['unique_id'] = $row['unique_id']; // Use this session variable elsewhere
+            $response = [
+                "status" => "success",
+                "message" => "Login successful",
+                "unique_id" => $row['unique_id']
+            ];
+        } else {
+            $response = [
+                "status" => "error",
+                "message" => "Email or password is incorrect"
+            ];
+        }
+    } else {
+        $response = [
+            "status" => "error",
+            "message" => "Email or password is incorrect"
+        ];
+    }
+
+    $stmt->close();
+
     }
 }
 
