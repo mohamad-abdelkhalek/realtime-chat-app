@@ -25,6 +25,15 @@ sendButton.onclick = () => {
     xhr.send(formData);
 };
 
+
+chatBox.onmouseenter = () => {
+    chatBox.classList.add("active");
+}
+
+chatBox.onmouseleave = () => {
+    chatBox.classList.remove("active");
+}
+
 // Fetch messages
 const fetchChatList = () => {
     const xhr = new XMLHttpRequest();
@@ -36,7 +45,9 @@ const fetchChatList = () => {
             chatBox.innerHTML = data; // Update chat box
 
             // Scroll to the bottom
-            chatBox.scrollTop = chatBox.scrollHeight;
+            if(!chatBox.classList.contains("active")){
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
         }
     };
 
