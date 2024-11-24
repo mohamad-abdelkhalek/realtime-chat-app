@@ -1,31 +1,42 @@
 // Select all forms within the .signup container
-const forms = document.querySelectorAll(".signup form"); 
+const forms = document.querySelectorAll(".signup form");
 const errorText = document.querySelector(".error-txt");
 
-forms.forEach((form) => {
-    form.onsubmit = (e) => {
-        e.preventDefault(); // Prevent form from submitting
+if (forms.length > 0) {
+    forms.forEach((form) => {
+        form.onsubmit = async (e) => {
+            e.preventDefault(); // Prevent form from submitting
 
-        // Ajax start
-        let xhr = new XMLHttpRequest(); // Create XML Object
-        xhr.open("POST", "./php/signup.php", true);
+            const formData = new FormData(form);
 
-        xhr.onload = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    let data = xhr.responseText; // Correctly get the response text
-                    if (data === "success") {
-                        location.href = "users.html";
-                    } else {
+            try {
+                // Send form data using Fetch API
+                const response = await fetch("./php/signup.php", {
+                    method: "POST",
+                    body: formData,
+                });
+                
+                // Get response text
+                const data = await response.text();
+
+                // Handle server response
+                if (data === "success") {
+                    location.href = "./users.php"; // Redirect on success
+                } else {
+                    if (errorText) {
                         errorText.textContent = data;
                         errorText.style.display = "block";
                     }
                 }
+            } catch (error) {
+                console.error("Error during AJAX request:", error);
+                if (errorText) {
+                    errorText.textContent = "Something went wrong. Please try again.";
+                    errorText.style.display = "block";
+                }
             }
         };
-
-        // Send form data
-        const formData = new FormData(form);
-        xhr.send(formData);
-    };
-});
+    });
+} else {
+    console.warn("No forms found in the .signup container.");
+}

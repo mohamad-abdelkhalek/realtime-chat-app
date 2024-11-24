@@ -16,7 +16,7 @@ forms.forEach((form) => {
                     try {
                         const response = JSON.parse(xhr.responseText); // Parse the JSON response
                         if (response.status === "success") {
-                            location.href = "users.html"; // Redirect to users page
+                            location.href = "./users.php"; // Redirect to users page
                         } else {
                             errorText.textContent = response.message || "An error occurred.";
                             errorText.style.display = "block";
