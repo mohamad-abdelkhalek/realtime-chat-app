@@ -52,6 +52,7 @@ Stores chat messages:
 - `outgoing_msg_id`: ID of the sender user.  
 - `msg`: Content of the message.  
 
+![Diagram of the app workflow](database/diagram.png)
 
 ---
 
