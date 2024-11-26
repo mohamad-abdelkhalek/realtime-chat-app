@@ -56,8 +56,42 @@ Stores chat messages:
 ---
 
 
+
 ## Installation  
 
 1. Clone the repository:  
    ```bash  
    git clone https://github.com/mohamad-abdelkhalek/realtime-chat-app.git
+   
+### Set up the Database:  
+1. Create a MySQL database and import the provided `database.sql` file.  
+
+### Configure the Backend:  
+1. Update `config.php` with your database credentials.  
+
+### Start the Server:  
+1. Use a local server like **XAMPP** or **WAMP** to run the project.  
+2. Place the project files in the server's root directory (e.g., `htdocs` for XAMPP).  
+
+### Access the Application:  
+1. Navigate to `http://localhost/<project-folder>/` in your web browser.  
+
+---
+
+## How to Use  
+
+1. Register a new account or log in with an existing one.  
+2. View the list of active users.  
+3. Start a conversation by clicking on a user.  
+4. Type a message and send it to see real-time updates in the chat window.  
+
+---
+
+## Future Improvements  
+
+- Add file-sharing functionality (images, documents).  
+- Implement group chats and chat rooms.  
+- Integrate push notifications for message alerts.  
+- Enhance security with password hashing and validation.  
+- Optimize for performance with WebSocket integration.  
+
