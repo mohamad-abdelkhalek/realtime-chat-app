@@ -1,4 +1,4 @@
-# Realtime Chat Application  
+# Realtime Chat Application 🌐
 
 A dynamic and responsive real-time chat application built using **HTML**, **CSS**, **JavaScript**, **AJAX**, **PHP**, and **MySQL**. This project enables users to communicate seamlessly with instant message updates and a user-friendly interface.  
 
